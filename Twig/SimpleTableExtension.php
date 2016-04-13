@@ -34,7 +34,7 @@ class SimpleTableExtension extends \Twig_Extension
      */
     public function getName()
     {
-        return 'app_extension';
+        return 'glavweb_simple_table_extension';
     }
 
     /**
