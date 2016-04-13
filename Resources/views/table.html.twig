@@ -1,0 +1,36 @@
+{% set fields       = tableMapper.fields() %}
+{% set tableData    = tableMapper.data() %}
+{% set tableOptions = tableMapper.options() %}
+{% set footer       = tableOptions.footer %}
+
+<table class="{{ tableOptions.class }}">
+    <thead>
+    <tr>
+        {% for fieldName, fieldOptions in fields %}
+            <th>{{ fieldOptions.label }}</th>
+        {% endfor %}
+    </tr>
+    </thead>
+
+    <tbody>
+    {% for row in tableData %}
+        <tr>
+            {% for fieldName, fieldOptions in fields %}
+                {% set value = fieldOptions.mapped ? row.get(fieldName) : fieldOptions.data %}
+
+                <td>{{ value }}</td>
+            {% endfor %}
+        </tr>
+    {% endfor %}
+    </tbody>
+
+    {% if footer is not null %}
+        <tfoot>
+        <tr>
+            <th colspan="{{ fields|length }}">
+                {{ footer }}
+            </th>
+        </tr>
+        </tfoot>
+    {% endif %}
+</table>

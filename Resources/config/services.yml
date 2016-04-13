@@ -1,0 +1,10 @@
+services:
+    glavweb.simple_table.renderer:
+        class: Glavweb\SimpleTableBundle\Renderer\Renderer
+        arguments: [@twig]
+
+    glavweb.simple_table.twig.simple_table_extension:
+        class: Glavweb\SimpleTableBundle\Twig\SimpleTableExtension
+        arguments: [@glavweb.simple_table.renderer]
+        tags:
+            - { name: twig.extension }
