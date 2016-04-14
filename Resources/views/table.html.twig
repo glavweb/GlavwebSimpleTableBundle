@@ -7,7 +7,7 @@
     <thead>
     <tr>
         {% for fieldName, fieldOptions in fields %}
-            <th>{{ fieldOptions.label }}</th>
+            <th>{{ fieldOptions.label|raw }}</th>
         {% endfor %}
     </tr>
     </thead>
@@ -18,7 +18,7 @@
             {% for fieldName, fieldOptions in fields %}
                 {% set value = fieldOptions.mapped ? row.get(fieldName) : fieldOptions.data %}
 
-                <td>{{ value }}</td>
+                <td>{{ value|raw }}</td>
             {% endfor %}
         </tr>
     {% endfor %}
@@ -28,7 +28,7 @@
         <tfoot>
         <tr>
             <th colspan="{{ fields|length }}">
-                {{ footer }}
+                {{ footer|raw }}
             </th>
         </tr>
         </tfoot>
