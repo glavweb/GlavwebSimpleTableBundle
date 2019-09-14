@@ -31,7 +31,7 @@ class Renderer
      */
     public function renderTable(TableMapper $tableMapper)
     {
-        return $this->twig->render('"@GlavwebSimpleTable/table.html.twig', [
+        return $this->twig->render('@GlavwebSimpleTable/table.html.twig', [
             'tableMapper' => $tableMapper
         ]);
     }
