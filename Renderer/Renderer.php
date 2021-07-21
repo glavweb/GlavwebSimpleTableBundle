@@ -4,6 +4,7 @@ namespace Glavweb\SimpleTableBundle\Renderer;
 
 use Glavweb\SimpleTableBundle\Mapper\TableGroupMapper;
 use Glavweb\SimpleTableBundle\Mapper\TableMapper;
+use Twig\Environment;
 
 /**
  * Class Renderer
@@ -12,15 +13,16 @@ use Glavweb\SimpleTableBundle\Mapper\TableMapper;
 class Renderer
 {
     /**
-     * @var \Twig_Environment
+     * @var Environment
      */
     private $twig;
 
-    /**
+    /**\
      * SimpleTableExtension constructor.
-     * @param \Twig_Environment $twig
+     *
+     * @param Environment $twig
      */
-    public function __construct(\Twig_Environment $twig)
+    public function __construct(Environment $twig)
     {
         $this->twig = $twig;
     }

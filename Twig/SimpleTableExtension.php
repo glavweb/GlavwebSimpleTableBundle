@@ -1,16 +1,18 @@
 <?php
 
 namespace Glavweb\SimpleTableBundle\Twig;
-use Glavweb\SimpleTableBundle\Mapper\Table;
+
 use Glavweb\SimpleTableBundle\Mapper\TableGroupMapper;
 use Glavweb\SimpleTableBundle\Mapper\TableMapper;
 use Glavweb\SimpleTableBundle\Renderer\Renderer;
+use Twig\Extension\AbstractExtension;
+use Twig\TwigFunction;
 
 /**
  * Class SimpleTableExtension
  * @package Glavweb\SimpleTableBundle\Twig
  */
-class SimpleTableExtension extends \Twig_Extension
+class SimpleTableExtension extends AbstractExtension
 {
     /**
      * @var Renderer
@@ -43,8 +45,8 @@ class SimpleTableExtension extends \Twig_Extension
     public function getFunctions()
     {
         return [
-            new \Twig_SimpleFunction('glavweb_simple_table_render', [$this, 'renderTable'], ['is_safe' => ['html']]),
-            new \Twig_SimpleFunction('glavweb_simple_table_render_group', [$this, 'renderTableGroup'], ['is_safe' => ['html']])
+            new TwigFunction('glavweb_simple_table_render', [$this, 'renderTable'], ['is_safe' => ['html']]),
+            new TwigFunction('glavweb_simple_table_render_group', [$this, 'renderTableGroup'], ['is_safe' => ['html']])
         ];
     }
 
