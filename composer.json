@@ -14,7 +14,7 @@
     ],
     "require": {
         "php": ">=7.2.5",
-        "symfony/http-foundation": "^4.0|^5.0",
+        "symfony/http-foundation": "^4.0|^5.0|^6.0",
         "twig/twig": "^3.0"
     },
     "autoload": {
