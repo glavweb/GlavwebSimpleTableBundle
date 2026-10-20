@@ -1,4 +1,4 @@
-FROM php:7.2.5-cli
+FROM php:8.4-cli
 
 ARG BUNDLE_VERSION
 ARG PACKAGE_NAME
@@ -8,13 +8,13 @@ RUN apt-get update && \
       unzip \
       libzip-dev \
       libpq-dev \
-    && docker-php-ext-install zip pdo_pgsql 
+    && docker-php-ext-install zip pdo_pgsql
 
 COPY --from=composer /usr/bin/composer /usr/bin/composer
 
 WORKDIR /usr/src/
 
-RUN composer create-project symfony/skeleton:"^5.3" app
+RUN composer create-project symfony/skeleton:"^8.0" app
 
 COPY scripts/ scripts/
 RUN chmod +x scripts/*

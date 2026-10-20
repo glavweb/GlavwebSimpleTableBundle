@@ -26,7 +26,7 @@ class TableGroupMapper
      * @param array     $options
      * @return TableGroupMapper
      */
-    public function table($name, TableData $data = null, array $options = null)
+    public function table($name, ?TableData $data = null, ?array $options = null)
     {
         if ($this->currentTable) {
             throw new \RuntimeException(sprintf('Table "%s" is already defined.', $name));
